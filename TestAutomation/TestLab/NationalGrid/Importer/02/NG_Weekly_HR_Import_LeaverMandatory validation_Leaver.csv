@@ -1,8 +1,0 @@
-Header,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Row identifier,Record Effective Date,NI Number,Payroll Number,Title,Surname,First Name,Middle Name,Gender,Date of Birth,Address 1,Address 2,Town,City,Postcode,Employment Status,Cost Centre/Payroll Area,Annual Base Salary,Pension scheme indicator,Annual pensionable salary,Contribution Percentage,Work Email Address,Organisation Unit Description Level 3,Organisation Unit Description Level 4,Organisation Unit Description Level 5,Start Date,Leaving Date,Weekly Hours Worked
-1,20150201,,9040746,Dr,Surnamefortysixaddthree,Firstnamefortysix,Middlenamefortysix,M,19850105,Addressline1,Addressline2,Lothian,Edinburgh,EH6 5ES,LEAVER,1100,10000,DCA,10000,4,abc@xyz.com,,,,20150201,20150212,35
-2,20150201,AB040748A,,Commander-in-chief,Surnamefortyeightaddfour,Firstnamefortyeight,Middlenamefortyeight,M,19850105,Addressline1,Addressline2,Lothian,Edinburgh,EH6 5ES,LEAVER,1500,10000,BCS,10000,3,abc@xyz.com,,,,20150201,20150212,35
-3,20150201,AB040749A,9040749,Mr,Surnamefortynine,Firstnamefortynine,Middlenamefortynine,M,19850105,Addressline1,Addressline2,Lothian,Edinburgh,EH6 5ES,LEAVER,1000,10000,BCS,10000,4,abc@xyz.com,,,,20150201,,35
-4,,AB040750A,9040750,Ms,Surnamefiftyforeignadd,Firstnamefifty,Middlenamefifty,F,19850105,Addressline1,Addressline2,Lothian,Edinburgh,EH6 5ES,LEAVER,1200,10000,ESA,10000,5,abc@xyz.com,,,,20150201,20150212,35
-5,20150201,AB040747A,9040747,Lord,Surnamefortysevenaddthree,Firstnamefortyseven,Middlenamefortyseven,M,19850105,Addressline1,Addressline2,Lothian,Edinburgh,EH6 5ES,LEAVER,Aerion,10000,ECS,10000,5,abc@xyz.com,,,,20150201,20150212,35
-5,,,,,,,,,,,,,,,,,,,,,,,,,,,

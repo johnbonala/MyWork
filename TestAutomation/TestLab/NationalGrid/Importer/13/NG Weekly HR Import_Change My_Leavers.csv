@@ -1,5 +1,0 @@
-Header,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Row identifier,Record Effective Date,NI Number,Payroll Number,Title,Surname,First Name,Middle Name,Gender,Date of Birth,Address 1,Address 2,Town,City,Postcode,Employment Status,Cost Centre/Payroll Area,Annual Base Salary,Pension scheme indicator,Annual pensionable salary,Contribution Percentage,Work Email Address,Organisation Unit Description Level 3,Organisation Unit Description Level 4,Organisation Unit Description Level 5,Start Date,Leaving Date,Weekly Hours Worked
-1,20140601,AB210726A,9210726,Dr,Surbtwentysix,Firstbtwentysix,Middlebtwentysix,M,19850105,Addlane1,Addlane2,Midlothian,Edinburgh,EH6 5ES,LEAVER,1100,10000,DCS,10000,4,abc@xyz.com,,,,20140526,20141126,35
-2,20140601,AB210727A,9210727,Lord,Surbtwentyseven,Firstbtwentyseven,Middlebtwentyseven,M,19850105,Addlane1,Addlane2,Midlothian,Edinburgh,EH6 5ES,LEAVER,Aerion,10000,ECA,10000,5,abc@xyz.com,,,,20131001,20141126,35
-2,,,,,,,,,,,,,,,,,,,,,,,,,,,

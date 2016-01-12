@@ -1,5 +1,0 @@
-Payroll Number,Payroll Group ID,National Insurance Number,Title,First Name,Surname,Gender,Date of Birth,Address Line 1,Address Line 2,Address Line 3,Postcode,Department,Basic Salary,Start Date,Date of Leaving,Reason for Leaving,Smart Pension Indicator,Bulmers
-2009005,543,AB200905A,Mr,Fnone,SNAcctRegA,M,05/11/1968,Sample Add 1,Sample Add 1,Sample Add 1,EC3A 8EP,Supply Chain,200000,01/08/2014,,,Y,Y
-2009006,543,AB200906A,Miss,Fntwo,SNAcctRegB,F,05/05/1985,Sample Add 2,Sample Add 2,Sample Add 2,EC3A 8EP,Finance,200000,01/08/2014,,,N,N
-2009007,543,AB200907A,Lord,Fnthree,SNAcctRegC,M,01/05/1967,Sample Add 3,Sample Add 3,Sample Add 3,EC3A 8EP,Finance,200000,01/08/2014,,,Y,A
-2009008,543,AB200908A,Ms,Fnfour,SNAcctRegD,F,02/12/1987,Sample Add 4,Sample Add 4,Sample Add 4,EC3A 8EP,Finance,200000,01/08/2014,,,N,

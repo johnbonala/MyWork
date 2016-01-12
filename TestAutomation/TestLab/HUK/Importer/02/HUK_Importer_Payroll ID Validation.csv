@@ -1,8 +1,0 @@
-Payroll Number,Payroll Group ID,National Insurance Number,Title,First Name,Surname,Gender,Date of Birth,Address Line 1,Address Line 2,Address Line 3,Postcode,Department,Basic Salary,Start Date,Date of Leaving,Reason for Leaving,Smart Pension Indicator,Bulmers
-2909001,078,AB290902A,Miss,Fntwo,SNAcctRegB,F,05/05/1985,Sample Add 2,Sample Add 2,Sample Add 2,EC3A 8EP,Finance,200000,01/08/2014,,,N,
-2909002,542,AB290903A,Lord,Fnthree,SNAcctRegC,M,01/05/1967,Sample Add 3,Sample Add 3,Sample Add 3,EC3A 8EP,Finance,200000,01/08/2014,,,Y,
-2909003,541,AB290904A,Lord,Fnfour,SNAcctRegD,F,02/12/1987,Sample Add 4,Sample Add 4,Sample Add 4,EC3A 8EP,Finance,200000,01/08/2014,,,N,
-2909004,543,AB290905A,Dr,Fnfive,SNAcctRegE,M,23/11/1975,Sample Add 5,Sample Add 5,Sample Add 5,EC3A 8EP,Bus. Systems,200000,01/08/2014,,,Y,
-2909005,544,AB290906A,Mrs,Fnsix,SNAcctRegF,F,05/11/1968,Sample Add 6,Sample Add 6,Sample Add 6,EC3A 8EP,Finance,200000,01/08/2014,,,N,
-2909006,543,AB290907A,Mr,Fnseven,SNAcctRegG,M,05/05/1985,Sample Add 7,Sample Add 7,Sample Add 7,EC3A 8EP,Finance,200000,01/08/2014,,,Y,Y
-2909007,Bulmers,AB290908A,Miss,Fneight,SNAcctRegH,F,05/05/1985,Sample Add 8,Sample Add 8,Sample Add 8,EC3A 8EP,Finance,200000,01/08/2014,,,N,Y
