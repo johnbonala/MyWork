@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="os" default="os">
+       
+       <!-- global properties -->
+       <property environment="env" />
+       <property file="build.properties" />
+       
+       <!-- os -->
+       <target name="os" description="Determine Underlying OS" depends="-set.os, -try.windows, -try.linux">
+              <echo message="Root Dir: ${root.dir}" />
+       </target>
+
+       <!-- set -->
+       <target name="-set.os">
+
+              <echo message="OS name: ${os.name}" />
+
+              <condition property="isLinux">
+                     <os family="unix" />
+              </condition>
+
+              <condition property="isWindows">
+                     <os family="windows" />
+              </condition>
+       </target>
+       
+       <!-- load linux properties -->
+       <target name="-try.linux" if="isLinux">
+              <echo message="Loading linux properties" />
+              <property file="linux.properties" />
+       </target>
+       
+       <!-- load windows properties -->
+       <target name="-try.windows" if="isWindows">
+              <echo message="Loading windows properties" />
+              <property file="windows.properties" />
+       </target>
+
+</project>

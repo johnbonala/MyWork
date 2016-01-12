@@ -1,0 +1,106 @@
+﻿Status,Date/Time,Staff number,Row number,Action,Data item,Before,After,Message
+INFO,14/11/2014 11:57:09,,,,,,,Process: ImportJob
+INFO,14/11/2014 11:57:09,,,,,,,Process actioned by: super user
+INFO,14/11/2014 11:57:09,,,,,,,Test run: false
+INFO,14/11/2014 11:57:09,,,,,,,Import Type: EmployeeOption
+INFO,14/11/2014 11:57:09,,,,,,,Import Configuration name: CSV_Version (current) TUI HR File
+INFO,14/11/2014 11:57:09,,,,,,,Import Filename: RC36 TUI Importer_GFRP2 Eligible_1_2014-11-14_11-57-08.csv
+ERROR,14/11/2014 11:57:09,'130501',2,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:10,'130501',2,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:10,'130502',3,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:10,'130502',3,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:11,'130503',4,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:11,'130503',4,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:11,'130501',5,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:11,'130501',5,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:12,'130502',6,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:12,'130502',6,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:12,'130503',7,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:12,'130503',7,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:13,'130501',8,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:13,'130501',8,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:14,'130502',9,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:14,'130502',9,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:14,'130503',10,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:14,'130503',10,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:15,'130501',11,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:15,'130501',11,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:16,'130502',12,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:16,'130502',12,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:16,'130503',13,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:16,'130503',13,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:17,'130501',14,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:17,'130501',14,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:18,'130502',15,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:18,'130502',15,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:18,'130503',16,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:18,'130503',16,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:19,'130501',17,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:19,'130501',17,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:19,'130502',18,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:20,'130502',18,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:20,'130503',19,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:20,'130503',19,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:21,'130501',20,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:21,'130501',20,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:21,'130502',21,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:21,'130502',21,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:22,'130503',22,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:22,'130503',22,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:22,'130501',23,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:23,'130501',23,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:23,'130502',24,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:23,'130502',24,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:24,'130503',25,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:24,'130503',25,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:24,'130501',26,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:24,'130501',26,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:25,'130502',27,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:25,'130502',27,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:25,'130503',28,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:25,'130503',28,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:26,'130501',29,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:26,'130501',29,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:27,'130502',30,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:27,'130502',30,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:27,'130503',31,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:27,'130503',31,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:28,'130501',32,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:28,'130501',32,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:29,'130502',33,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:29,'130502',33,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:29,'130503',34,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:29,'130503',34,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:30,'130501',35,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:30,'130501',35,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:31,'130502',36,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:31,'130502',36,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:31,'130503',37,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:31,'130503',37,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:32,'130501',38,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:32,'130501',38,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:32,'130502',39,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:33,'130502',39,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:33,'130503',40,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:33,'130503',40,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:34,'130501',41,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:34,'130501',41,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:34,'130502',42,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:34,'130502',42,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:35,'130503',43,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:35,'130503',43,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:35,'130501',44,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:35,'130501',44,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:36,'130502',45,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:36,'130502',45,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:36,'130503',46,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:37,'130503',46,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:38,'130501',47,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:38,'130501',47,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:38,'130502',48,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:38,'130502',48,,Action,,,Validation failed
+ERROR,14/11/2014 11:57:39,'130503',49,JOINER,GFRP Site Code,,,This field is mandatory for a joiner.
+ERROR,14/11/2014 11:57:39,'130503',49,,Action,,,Validation failed
+INFO,14/11/2014 11:57:39,,,,,,,48 records processed
+INFO,14/11/2014 11:57:39,,,,,,,48 records with errors
+INFO,14/11/2014 11:57:39,,,,,,,0 successful records processed

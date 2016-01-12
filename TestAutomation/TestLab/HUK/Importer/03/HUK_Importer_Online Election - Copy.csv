@@ -1,0 +1,14 @@
+Payroll Number,Payroll Group ID,National Insurance Number,Title,First Name,Surname,Gender,Date of Birth,Address Line 1,Address Line 2,Address Line 3,Postcode,Department,Basic Salary,Start Date,Date of Leaving,Reason for Leaving,Smart Pension Indicator,Bulmers
+3010001,542,AB301001A,Mr,Fnone,SNAcctRegA,M,05/11/1968,Sample Add 1,Sample Add 1,Sample Add 1,EC3A 8EP,Supply Chain,200000,01/06/2014,,,Y,
+3010002,542,AB301002A,Miss,Fntwo,SNAcctRegB,F,05/05/1985,Sample Add 2,Sample Add 2,Sample Add 2,EC3A 8EP,Finance,200000,01/06/2014,,,N,
+3010003,542,AB301003A,Lord,Fnthree,SNAcctRegC,M,01/05/1967,Sample Add 3,Sample Add 3,Sample Add 3,EC3A 8EP,Finance,200000,01/06/2014,,,Y,
+3010004,542,AB301004A,Ms,Fnfour,SNAcctRegD,F,02/12/1987,Sample Add 4,Sample Add 4,Sample Add 4,EC3A 8EP,Finance,200000,01/06/2014,,,N,
+3010005,542,AB301005A,Dr,Fnfive,SNAcctRegE,M,23/11/1975,Sample Add 5,Sample Add 5,Sample Add 5,EC3A 8EP,Bus. Systems,200000,01/06/2014,,,Y,
+3010006,542,AB301006A,Mrs,Fnsix,SNAcctRegF,F,05/11/1968,Sample Add 6,Sample Add 6,Sample Add 6,EC3A 8EP,Finance,200000,01/06/2014,,,N,
+3010007,542,AB301007A,Mr,Fnseven,SNAcctRegG,M,05/05/1985,Sample Add 7,Sample Add 7,Sample Add 7,EC3A 8EP,Finance,200000,01/06/2014,,,Y,
+3010008,542,AB301008A,Miss,Fneight,SNAcctRegH,F,05/05/1985,Sample Add 8,Sample Add 8,Sample Add 8,EC3A 8EP,Finance,200000,01/06/2014,,,N,
+3010009,543,AB301009A,Lord,Fnnine,SNAcctRegI,M,02/12/1987,Sample Add 8,Sample Add 8,Sample Add 8,EC3A 8EP,Finance,200000,01/06/2014,,,Y,
+3010010,543,AB301010A,Dame,Fnten,SNAcctRegJ,F,23/11/1975,Sample Add 10,Sample Add 10,Sample Add 10,EC3A 8EP,Bus. Systems,200000,01/06/2014,,,N,
+3010011,543,AB301011A,Dr,Fneleven,SNAcctRegK,M,05/11/1968,Sample Add 11,Sample Add 11,Sample Add 11,EC3A 8EP,Finance,200000,01/06/2014,,,Y,Y
+3010012,543,AB301012A,Mrs,Fntwelve,SNAcctRegL,F,05/05/1985,Sample Add 12,Sample Add 12,Sample Add 12,EC3A 8EP,Finance,200000,01/06/2014,,,N,Y
+3010013,543,AB301013A,Mr,Fnthirteen,SNAcctRegM,M,01/05/1967,Sample Add 13,Sample Add 13,Sample Add 13,EC3A 8EP,Finance,200000,01/06/2014,,,N,Y

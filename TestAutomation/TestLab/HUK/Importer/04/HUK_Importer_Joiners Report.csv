@@ -1,0 +1,6 @@
+Payroll Number,Payroll Group ID,National Insurance Number,Title,First Name,Surname,Gender,Date of Birth,Address Line 1,Address Line 2,Address Line 3,Postcode,Department,Basic Salary,Start Date,Date of Leaving,Reason for Leaving,Smart Pension Indicator,Bulmers
+8010001,542,AB801001A,Mr,"Fn""one"" ",SNAcctRegAsnvalidationfortruncation,M,05/11/1968,"Sample ""Add 1""","Sample,Add 1","Sample""Add 1""",EC3A 8EP,Supply Chain,200000,01/08/2014,,,Y,
+8010002,542,AB801002A,Miss,"Fn,two","SNAc""ctReg""B",F,05/05/1985,"Sample,Add 2","""Sample"" Add 2","Sample,Add 2",EC3A 8EP,Finance,200000,01/08/2014,,,N,
+8010003,543,AB801003A,Lord,Fnthreefnvalidationfortruncation,"SNAcct,RegC",M,01/05/1967,1/3 Sample Add 3validationfortruncation,Sample Add 3validationfortruncation,Sample Add 3validationfortruncation,EC3A 8EP,Finance,200000,01/08/2014,,,Y,
+8010004,543,AB801004A,Ms,Fnfour,SNAcctRegD,F,02/12/1987,Sample Add 4,Sample Add 4,Sample Add 4,EC3A 8EP,Finance,200000,01/08/2014,,,N,
+8010005,543,AB801005A,Dr,Fnfive,SNAcctRegE,M,23/11/1975,Sample Add 5,Sample Add 5,Sample Add 5,EC3A 8EP,Bus. Systems,200000,01/08/2014,,,Y,Y

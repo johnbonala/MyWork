@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TestNG-backup-restore" default="" basedir=".">
+	
+	<property name="libdir" location="lib" />
+	
+	<path id="classpath.jdbcdriver">
+		<fileset dir="${libdir}">
+			<include name="**/jtds-1.2.3.jar" />
+		</fileset>
+	</path>
+	
+	
+	<!--
+		A first test of running upgrade scripts against DBs.
+		To be used after DBs have been restored.
+		
+		1. Restore DBs.
+		
+		2. Upgrade DBs.
+		
+		3. Run auto tests.
+		
+	-->
+	<target name="upgrade-rc">
+	
+		<sshexec host="test5vm"
+			username="testing"
+			password="t3st1ng"
+			command="touch somefile"/>
+		
+	</target>
+	
+	
+	<!--
+		Backup the automation databases in cluster test.
+		Links with the task 'restoredatabases'
+		WARNING - this will create a new set of backups - overwriting the old backups
+		ONLY CALL WHEN REQUIRED
+	-->
+	<target name="backupdatabases-rc">
+		
+		<echo>starting automation database backups on rc cluster test</echo>
+		
+		<!--
+		
+		<echo>AUTO_RC_Midland</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_RC_Midland]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_RC_Midland.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_RC_Midland-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+
+		
+		<echo>AUTO_RC_NationalGrid</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_RC_NationalGrid]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_RC_NationalGrid.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_RC_NationalGrid-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+		
+		
+		<echo>AUTO_RC_SL</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+					
+			BACKUP DATABASE [AUTO_RC_SL]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_RC_SL.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_RC_SL-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+
+		
+		<echo>AUTO_RC_TUI</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_RC_TUI]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_RC_TUI.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_RC_TUI-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+				-->
+	</target>
+	
+	<!--
+			Backup the automation databases in test5.
+			Links with the task 'restoredatabases'
+			WARNING - this will create a new set of backups - overwriting the old backups
+			ONLY CALL WHEN REQUIRED
+		-->
+	<target name="backupdatabases-test5">
+		
+		<echo>starting automation database backups on test5</echo>
+		
+		<!--
+
+		
+		<echo>AUTO_TEST5_Midland</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_TEST5_Midland]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_TEST5_Midland.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_TEST5_Midland-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+			
+		
+		<echo>AUTO_TEST5_NationalGrid</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_TEST5_NationalGrid]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_TEST5_NationalGrid.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_TEST5_NationalGrid-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_SL</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+					
+			BACKUP DATABASE [AUTO_TEST5_SL]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_TEST5_SL.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_TEST5_SL-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_TUI</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_TEST5_TUI]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_TEST5_TUI.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_TEST5_TUI-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_Telefonica</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_TEST5_Telefonica]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_TEST5_Telefonica.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_TEST5_Telefonica-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_Enterprise</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_TEST5_Enterprise]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_TEST5_Enterprise.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_TEST5_Enterprise-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_NALCO</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			>
+			
+			BACKUP DATABASE [AUTO_TEST5_NALCO]
+				TO  DISK = N'V:\transfer\automatedTesting\AUTO_TEST5_NALCO.bak'
+				WITH NOFORMAT, INIT, NAME = N'AUTO_TEST5_NALCO-Full Database Backup',
+				SKIP, NOREWIND, NOUNLOAD, STATS = 10
+		</sql>
+		
+		-->
+		
+	</target>
+	
+	<!--
+		Restore the automation databases in cluster test.
+		Links with the task 'backupdatabases'
+		WARNING - this will rest the databases back to their previously restored state!
+		ONLY CALL WHEN REQUIRED
+		
+		Have had problems with restore not working. To resolve we have doubled up the calls
+		to restore as per these comments...
+		http://serverfault.com/questions/388477/fresh-sql-server-db-restore-works-most-times-but-fails-sometimes
+		
+	-->
+	<target name="restoredatabases-rc">
+		
+		<echo>starting restore of automation databases to RC cluster test</echo>
+		<echo>AUTO_RC_Midland</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'AUTO_RC_Midland'
+			SET @dbpath = 'automatedTesting\AUTO_RC_Midland.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_RC_Midland SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>AUTO_RC_NationalGrid</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'AUTO_RC_NationalGrid'
+			SET @dbpath = 'automatedTesting\AUTO_RC_NationalGrid.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_RC_NationalGrid SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>AUTO_RC_SL</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+			
+			SET @dbname = 'AUTO_RC_SL'
+			SET @dbpath = 'automatedTesting\AUTO_RC_SL.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_RC_SL SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>AUTO_RC_TUI</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+			
+			SET @dbname = 'AUTO_RC_TUI'
+			SET @dbpath = 'automatedTesting\AUTO_RC_TUI.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_RC_TUI SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+	</target>
+	
+	
+	<!--
+		Restore the automation databases in test5.
+		Links with the task 'backupdatabases'
+		WARNING - this will rest the databases back to their previously restored state!
+		ONLY CALL WHEN REQUIRED
+		
+		Have had problems with restore not working. To resolve we have doubled up the calls
+		to restore as per these comments...
+		http://serverfault.com/questions/388477/fresh-sql-server-db-restore-works-most-times-but-fails-sometimes
+	-->
+	<target name="restoredatabases-test5">
+		
+		<echo>starting restore of automation databases to test5</echo>
+		
+		<!--
+		<echo>AUTO_TEST5_Midland</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'AUTO_TEST5_Midland'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_Midland.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_TEST5_Midland SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_Heineken</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+						
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+						
+			SET @dbname = 'AUTO_TEST5_Heineken'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_Heineken_2014_12_16.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+						
+			ALTER DATABASE AUTO_TEST5_Heineken SET COMPATIBILITY_LEVEL = 100
+		</sql>
+				
+				
+					<echo>AUTO_TEST5_SCB</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+						
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+						
+			SET @dbname = 'AUTO_TEST5_SCB'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_SCB_2014_09_18.bak' 
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+						
+			ALTER DATABASE AUTO_TEST5_SCB SET COMPATIBILITY_LEVEL = 100
+		</sql>
+				
+	-->
+		
+		
+		<echo>AUTO_TEST5_NationalGrid</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'AUTO_TEST5_NationalGrid'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_NationalGrid_2015_01_19.bak '
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_TEST5_NationalGrid SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+			
+		<echo>AUTO_TEST5_SL</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+			
+			SET @dbname = 'AUTO_TEST5_SL'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_SL.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_TEST5_SL SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_TUI</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+			
+			SET @dbname = 'AUTO_TEST5_TUI'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_TUI_BS_2015_06_12.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_TEST5_TUI SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_Telefonica</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+			
+			SET @dbname = 'AUTO_TEST5_Telefonica'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_Telefonica_Stubs_2015_13_01.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_TEST5_Telefonica SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>AUTO_TEST5_Enterprise</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'AUTO_TEST5_Enterprise'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_Enterprise.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_TEST5_Enterprise SET COMPATIBILITY_LEVEL = 100
+		</sql>
+
+		
+		<echo>AUTO_TEST5_NALCO</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'AUTO_TEST5_NALCO'
+			SET @dbpath = 'automatedTesting\AUTO_TEST5_NALCO_Period_2015_06_05.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE AUTO_TEST5_NALCO SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>TEST5_OFFSHORE1</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'TEST5_OFFSHORE1'
+			SET @dbpath = 'automatedTesting\TEST5_OFFSHORE1_CONTENT.10.06.2015.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE TEST5_OFFSHORE1 SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>TEST5_OFFSHORE2</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'TEST5_OFFSHORE2'
+			SET @dbpath = 'automatedTesting\TEST5_OFFSHORE2_CONTENT.10.06.2015.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE TEST5_OFFSHORE2 SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>TEST5_OFFSHORE4</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'TEST5_OFFSHORE4'
+			SET @dbpath = 'automatedTesting\TEST5_OFFSHORE4_CONTENT.10.06.2015.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE TEST5_OFFSHORE4 SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>TEST5_OFFSHORE6</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'TEST5_OFFSHORE6'
+			SET @dbpath = 'automatedTesting\TEST5_OFFSHORE6_CONTENT.10.06.2015.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE TEST5_OFFSHORE6 SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		<echo>TEST5_OFFSHORE7</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+			
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'TEST5_OFFSHORE7'
+			SET @dbpath = 'automatedTesting\TEST5_OFFSHORE7_CONTENT.10.06.2015.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			
+			ALTER DATABASE TEST5_OFFSHORE7 SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+		
+		
+		<echo>TEST5_OFFSHORE8</echo>
+				<sql
+					driver="net.sourceforge.jtds.jdbc.Driver"
+					url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+					userid="autotest"
+					password="autotest"
+					classpathref="classpath.jdbcdriver"
+					autocommit="true"
+					>
+								
+					DECLARE @dbname varchar(255)
+					DECLARE @dbpath varchar(255)
+
+					SET @dbname = 'TEST5_OFFSHORE8'
+					SET @dbpath = 'automatedTesting\TEST5_OFFSHORE8_CONTENT.11.06.2015.bak'
+
+					EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+					EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+								
+					ALTER DATABASE TEST5_OFFSHORE9 SET COMPATIBILITY_LEVEL = 100
+				</sql>
+
+		
+		<echo>TEST5_OFFSHORE9</echo>
+		<sql
+			driver="net.sourceforge.jtds.jdbc.Driver"
+			url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+			userid="autotest"
+			password="autotest"
+			classpathref="classpath.jdbcdriver"
+			autocommit="true"
+			>
+						
+			DECLARE @dbname varchar(255)
+			DECLARE @dbpath varchar(255)
+
+			SET @dbname = 'TEST5_OFFSHORE9'
+			SET @dbpath = 'automatedTesting\TEST5_OFFSHORE9_CONTENT.11.06.2015.bak'
+
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+			EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+						
+			ALTER DATABASE TEST5_OFFSHORE9 SET COMPATIBILITY_LEVEL = 100
+		</sql>
+		
+	</target>
+	
+	
+	<!--target name="restoredatabases-local">
+			
+			<echo>starting restore of automation databases to local</echo>
+			<echo>AUTO_TEST5_Midland</echo>
+			
+			<sql
+				driver="net.sourceforge.jtds.jdbc.Driver"
+				url="jdbc:jtds:sqlserver://SL004976:1433/"
+				userid="sa"
+				password="Muppet123"
+				classpathref="classpath.jdbcdriver"
+				autocommit="true"
+				>
+				
+				DECLARE @dbname varchar(255)
+				DECLARE @dbpath varchar(255)
+
+				SET @dbname = 'auto_ultra'
+				SET @dbpath = 'TRUNK_ULTRA.bak'
+
+				EXEC vebnetRestoreBackup @dbname, @dbpath, 1
+				
+				ALTER DATABASE auto_ultra SET COMPATIBILITY_LEVEL = 100
+			</sql>
+	</target-->
+	
+</project>

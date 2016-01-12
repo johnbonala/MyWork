@@ -1,0 +1,28 @@
+-- Run this script in MS SQL Server against the relevant META database.
+
+-- This script will delete unwanted stubs from the stubs database. 
+-- This script should be run periodically, for example after running a large test which has recorded new stubs.
+-- Please add any other unwanted stubs to this script.
+
+
+-- This statement will delete stubs from ProvidePensionValuation which contain an informational message which actually looks like an error.
+select * from SoadaServiceStub 
+where serviceName = 'ProvidePensionValuation' 
+  and response like '%Sorry, quote failed, please contact Helpdesk%'
+
+delete from SoadaServiceStub 
+where serviceName = 'ProvidePensionValuation' 
+  and response like '%Sorry, quote failed, please contact Helpdesk%'
+
+
+-- This statement will delete stubs from ProvidePensionPaymentInfo which contain an informational message saying no payments exist.
+-- You may wish to run it for some or all policies if you think payments do exist and this stub is blocking them from being found.
+select * from SoadaServiceStub 
+where serviceName = 'ProvidePensionPaymentInfo' 
+  and response like '%No payments exist for selected period%' 
+
+delete from SoadaServiceStub 
+where serviceName = 'ProvidePensionPaymentInfo' 
+  and response like '%No payments exist for selected period%' 
+--  and requestKey like '%D2398896000%'
+

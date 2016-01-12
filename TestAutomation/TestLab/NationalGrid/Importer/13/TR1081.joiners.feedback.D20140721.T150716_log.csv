@@ -1,0 +1,59 @@
+Status,Date/Time,Staff number,Row number,Action,Data item,Before,After,Message
+INFO,21/07/2014 15:30,,,,,,,Process: ImportJob
+INFO,21/07/2014 15:30,,,,,,,Process actioned by: NI001003N NI001003N
+INFO,21/07/2014 15:30,,,,,,,Test run: false
+INFO,21/07/2014 15:30,,,,,,,Import Type: PolicyFeedbackOption
+INFO,21/07/2014 15:30,,,,,,,Import Configuration name: Default
+INFO,21/07/2014 15:30,,,,,,,Import Filename: TR1081.joiners.feedback.D20140721.T150716_2014-07-21_15-30-17.csv
+SUCCESS,21/07/2014 15:30,'AB210701A',3,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210702A',4,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210703A',5,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210704A',6,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210706A',7,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210707A',8,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210708A',9,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210709A',10,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210710A',11,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210711A',12,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210712A',13,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210714A',14,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210715A',15,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210716A',16,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210719A',17,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210720A',18,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210721A',19,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210722A',20,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210724A',21,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210725A',22,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210726A',23,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210728A',24,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210729A',25,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210730A',26,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210731A',27,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210733A',28,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210734A',29,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210735A',30,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210736A',31,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210738A',32,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210739A',33,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210740A',34,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210741A',35,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210743A',36,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210744A',37,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210745A',38,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210746A',39,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210748A',40,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210749A',41,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210750A',42,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210751A',43,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210752A',44,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210753A',45,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210754A',46,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210755A',47,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210756A',48,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210758A',49,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210759A',50,,,,,Policy feedback successfully updated
+SUCCESS,21/07/2014 15:30,'AB210760A',51,,,,,Policy feedback successfully updated
+INFO,21/07/2014 15:30,,,,,,,49 records processed
+INFO,21/07/2014 15:30,,,,,,,0 records with errors
+INFO,21/07/2014 15:30,,,,,,,49 successful records processed

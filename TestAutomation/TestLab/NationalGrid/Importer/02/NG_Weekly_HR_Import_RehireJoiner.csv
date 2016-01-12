@@ -1,0 +1,4 @@
+Header,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Row identifier,Record Effective Date,NI Number,Payroll Number,Title,Surname,First Name,Middle Name,Gender,Date of Birth,Address 1,Address 2,Town,City,Postcode,Employment Status,Cost Centre/Payroll Area,Annual Base Salary,Pension scheme indicator,Annual pensionable salary,Contribution Percentage,Work Email Address,Organisation Unit Description Level 3,Organisation Unit Description Level 4,Organisation Unit Description Level 5,Start Date,Leaving Date,Weekly Hours Worked
+1,20140601,AB040720A,9040720,Lord,Surnametwenty,Firstnametwenty,Middlenametwenty,M,19850105,Addressline1,Addressline2,Lothian,Edinburgh,EH6 5ES,ACTIVE,1000,10000,ESS,10000,4,abc@xyz.com,,,,20140526,,35
+1,,,,,,,,,,,,,,,,,,,,,,,,,,,

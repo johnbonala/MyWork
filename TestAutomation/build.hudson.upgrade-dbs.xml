@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hudson-upgrade-dbs" default="upgrade-dbs" basedir=".">
+	
+	<tstamp>
+		<format property="current.time" pattern="yyyyMMdd_HHmmss" />
+		<format property="mail.time" pattern="dd MMM yyyy HH:mm:ss" />
+		<format property="monthAgo" pattern="yyyyMMdd" unit="day" offset="-30" />
+	</tstamp>
+
+	<property name="lib.dir" location="${basedir}/lib" />
+	<property name="scratch.dir" location="${basedir}/scratch" />
+	<property name="scripts.zip" location="C:/Temp/ReFlexScripts.zip" />
+
+	
+	<!--
+		Clean out the scratch dir
+	-->
+	<target name="clean">
+		<delete quiet="true" verbose="false">
+			<fileset dir="${scratch.dir}" />
+		</delete>
+		
+		<mkdir dir="${scratch.dir}"/>
+	</target>
+
+	
+	<!--
+		Grab the build and extract into scratch area
+	-->
+	<target name="grab-build" depends="clean">
+		
+		<!-- grab the latest build for test5 -->
+		<get src="http://svn.vebnet.com/hudson/job/ReFlex%20TRUNK%20TEST5%20Build/lastSuccessfulBuild/artifact/ReFlexBuild/ReFlexScripts.zip"
+			dest="${scratch.dir}/ReFlexScripts.zip" />
+		
+		<!-- expand the scripts zip file into a scratch dir -->
+		<unzip src="${scratch.dir}/ReFlexScripts.zip" dest="${scratch.dir}" />
+		
+		<!-- temp copy of bcprov jar - remove this step once we can reference direct from ReFlexScripts zip -->
+		<copy file="${lib.dir}/bcprov-jdk16-145.jar" todir="${scratch.dir}/lib" />
+		
+	</target>
+	
+	
+	<!--
+		Upgrade the automation DBs
+	-->
+	<target name="upgrade-dbs" depends="grab-build">
+		
+		<!-- run the upgrade scripts via the usual ant.upgrade.xml ant file -->
+		<ant dir="${scratch.dir}" antfile="${scratch.dir}/ant.migrate.database.xml" target="migrate" >
+			<property name="databasePropertiesLocation" value="${basedir}/config/test5"/>
+			<property name="scriptRootDirectory" value="${scratch.dir}/MAIN"/>
+			<property name="databaseNames" value="AUTO_TEST5_Midland:AUTO_TEST5_NationalGrid:AUTO_TEST5_SL:AUTO_TEST5_TUI:AUTO_TEST5_Telefonica:AUTO_TEST5_NALCO:AUTO_TEST5_Enterprise:TEST5_OFFSHORE1:TEST5_OFFSHORE2:TEST5_OFFSHORE4:TEST5_OFFSHORE6:TEST5_OFFSHORE7"/>
+		</ant>
+		
+	</target>
+	
+	
+	<!--
+		Upgrade just one DB
+	-->
+	<target name="upgrade-dbs-one-db" depends="grab-build">
+			
+			<!-- run the upgrade scripts via the usual ant.upgrade.xml ant file -->
+			<ant dir="${scratch.dir}" antfile="${scratch.dir}/ant.migrate.database.xml" target="migrate" >
+				<property name="databasePropertiesLocation" value="${basedir}/config/test5"/>
+				<property name="scriptRootDirectory" value="${scratch.dir}/MAIN"/>
+				<property name="databaseNames" value="TEST5_OFFSHORE7"/>
+			</ant>
+		
+		<sql
+						driver="net.sourceforge.jtds.jdbc.Driver"
+						url="jdbc:jtds:sqlserver://vtest-db3:1433/"
+						userid="autotest"
+						password="autotest"
+						classpathref="classpath.jdbcdriver"
+						autocommit="true"
+						>
+			--Update company code 
+			EXEC ('EXEC [' + @dbname + '].dbo.updateTestCompany 1, ''' + @companyCode + '''') 
+			--Reload cache 
+			EXEC ('USE [' + @dbname + '] UPDATE CacheInvalidationInfo SET latestValue = latestvalue + 1') 
+			--Add Devuser access 
+			EXEC ('USE [' + @dbname + '] IF EXISTS (SELECT * FROM sys.database_principals WHERE name = N''devuser'') 
+			BEGIN 
+			DROP USER [devuser] 
+			END; 
+			IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N''devuser'') 
+			BEGIN 
+			CREATE USER [devuser] FOR LOGIN [devuser] 
+			EXEC sp_addrolemember N''db_datareader'', N''devuser'' 
+			END; 
+			')
+
+		SELECT * FROM company
+			
+			</sql>
+			
+	</target>
+
+</project>

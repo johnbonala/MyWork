@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TestNGTest" default="iterateTestLab" basedir=".">
+	
+	<!-- Define <testng> task -->
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+		<classpath>
+			<pathelement location="lib/testng-6.8.5.jar" />
+		</classpath>
+	</taskdef>
+	
+	<!-- define the ant contrib task -->
+	<taskdef resource="net/jtools/classloadertask/antlib.xml" classpath="lib/ant-classloadertask.jar" />
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+	
+	<!-- setup timestamps - used for folder names -->
+	<tstamp>
+		<format property="current.time" pattern="yyyyMMdd_HHmmss" />
+		<format property="mail.time" pattern="dd MMM yyyy HH:mm:ss" />
+		<format property="monthAgo" pattern="yyyyMMdd" unit="day" offset="-30" />
+	</tstamp>
+	
+	<property name="srcdir" location="src" />
+	<property name="libdir" location="lib" />
+	<property name="bindir" location="bin" />
+	<property name="propdir" location="properties" />
+	<property name="xsltlib" location="xsltlib" />
+	<property name="full-compile" value="true" />
+	<property name="browser" value="C:\Program Files (x86)\Mozilla Firefox\firefox" />
+	<property name="java" value="C:\RAD\java\jdk6\bin" />
+	<property file="${propdir}/config.properties" prefix="property" />
+
+	<path id="classpath.test">
+		<pathelement location="${bindir}" />
+		<fileset dir="${java}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${libdir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${srcdir}" />
+		<pathelement location="${testngResults}" />
+		<pathelement location="${propdir}" />
+	</path>
+
+	<path id="classpath.xslt">
+		<fileset dir="${xsltlib}">
+			<include name="**/*.*" />
+		</fileset>
+	</path>
+	
+	<classloader loader="project">
+		<classpath>
+			<pathelement path="lib/activation.jar" />
+			<pathelement path="lib/mail.jar" />
+		</classpath>
+	</classloader>
+
+	<property name="testrunbasedest.dir" value="${property.testRunFolder}" />
+	<propertyregex property="testrunoutdest.dir" input="${testrunbasedest.dir}" regexp=" " replace="_" global="true" defaultValue="${testrunbasedest.dir}" />
+
+	<property name="testlabbasedest.dir" value="${testrunoutdest.dir}/TestLab" />
+	<property name="testresultsbasedest.dir" value="${testrunoutdest.dir}/TestRunResults" />
+	<property name="testresultsoutdest.dir" value="${testresultsbasedest.dir}/TestNGResults/TestNGResults_At_${current.time}" />
+	<property name="testreportoutdest.dir" value="${testresultsbasedest.dir}/TestRunReports/TestReport_At_${current.time}" />
+	<property name="testreportmailoutdest.dir" value="${basedir}/testreport" />
+
+	<property name="indexoutdest.file" value="${testreportoutdest.dir}/index.html" />
+	<propertyregex property="indexoutmail.filepath" input="${indexoutdest.file}" regexp="[\\/]" replace="\\\\" global="true" defaultValue="${indexoutdest.file}" override="true" />
+
+	<property name="testlabbase.dir" value="${basedir}/TestLab" />
+	<property name="testlabbasein.dir" value="" />
+	<property name="testlaboutdest.dir" value="" />
+
+	<property name="testLabName" value="" />
+	<property name="testLabName.dir" value="" />
+	<property name="testLabScripts" value="" />
+
+	
+	<target name="iterateTestLab">
+		<for list="${property.testlab}" delimiter=";" param="val" trim="true">
+			<sequential>
+				<if>
+					<equals arg1="${val}" arg2="" />
+					<then>
+					</then>
+					<else>
+						<if>
+							<equals arg1="${testLabName}" arg2="" />
+							<then>
+								<var name="testLabName" value="@{val}" />
+							</then>
+							<else>
+								<var name="testLabName" value="${testLabName} &lt;br/&gt; @{val}" />
+							</else>
+						</if>
+
+						<if>
+							<equals arg1="${testLabName.dir}" arg2="" />
+							<then>
+								<var name="testLabName.dir" value=" @{val}_${current.time}" />
+							</then>
+							<else>
+								<var name="testLabName.dir" value="${testLabName.dir}&lt;br/&gt; @{val}_${current.time}" />
+							</else>
+						</if>
+
+
+						<var name="testlabbasein.dir" value="${testlabbase.dir}/@{val}" />
+
+						<var name="testlabout.dir" value="${testlabbasedest.dir}/@{val}_${current.time}" />
+						<propertyregex property="testlaboutdest.dir" input="${testlabout.dir}" regexp=" " replace="_" global="true" defaultValue="${testlabout.dir}" override="true" />
+
+						<if>
+							<equals arg1="${testLabScripts}" arg2="" />
+							<then>
+								<var name="testLabScripts" value="${testlaboutdest.dir}" />
+							</then>
+							<else>
+								<var name="testLabScripts" value="${testLabScripts};${testlaboutdest.dir}" />
+							</else>
+						</if>
+
+						<antcall target="copytests" />
+					</else>
+
+				</if>
+
+			</sequential>
+		</for>
+		<antcall target="openreport" />
+	</target>
+
+	
+	<target name="copytests"  depends="createWorkingFolders">
+		<copy todir="${testlaboutdest.dir}">
+			<fileset dir="${testlabbasein.dir}">
+				<include name="**/*.xlsx" />
+				<include name="**/*.csv" />
+				<include name="**/*.xml" />
+				<exclude name="**/~*" />
+			</fileset>
+		</copy>
+	</target>
+
+	
+	<target name="createWorkingFolders">
+		<mkdir dir="${testlaboutdest.dir}" />
+		<mkdir dir="${testlaboutdest.dir}/Screenshots" />
+	</target>
+
+	
+	<target name="generatexml">
+		<mkdir dir="${testresultsoutdest.dir}">
+		</mkdir>
+		<java classname="com.lifelens.automation.GenerateTestNGxml">
+			<arg value="${testLabScripts}" />
+			<arg value="${testresultsoutdest.dir}" />
+			<classpath refid="classpath.test" />
+		</java>
+	</target>
+	
+	
+	<target name="run" depends="generatexml">
+		<testng outputdir="${testresultsoutdest.dir}" classpathref="classpath.test" failureproperty="test.failed" >
+			<xmlfileset dir="${testresultsoutdest.dir}" includes="testng.xml" />
+		</testng>
+	</target>
+
+	
+	<target name="generateTestReport" depends="run">
+		<mkdir dir="${testreportoutdest.dir}">
+		</mkdir>
+		<copy todir="${testreportoutdest.dir}">
+			<fileset dir="${basedir}">
+				<include name="TestReportMail.html" />
+			</fileset>
+		</copy>
+		<xslt in="${testresultsoutdest.dir}/testng-results.xml" style="${xsltlib}/testng-results.xsl" out="${indexoutdest.file}">
+			<param expression="${testreportoutdest.dir}/" name="testNgXslt.outputDir" />
+			<param expression="true" name="testNgXslt.sortTestCaseLinks" />
+			<param expression="FAIL,SKIP,PASS,CONF,BY_CLASS" name="testNgXslt.testDetailsFilter" />
+			<param expression="true" name="testNgXslt.showRuntimeTotals" />
+			<classpath refid="classpath.xslt">
+			</classpath>
+		</xslt>
+	</target>
+
+	
+	<target name="copytestsreport" depends="generateTestReport">
+		<delete dir="${testreportmailoutdest.dir}">
+		</delete>
+		<mkdir dir="${testreportmailoutdest.dir}" />
+		<copy todir="${testreportmailoutdest.dir}">
+			<fileset dir="${testreportoutdest.dir}" />
+		</copy>
+	</target>
+
+	
+	<target name="generateMailContent" depends="copytestsreport">
+		<replaceregexp file="${testreportoutdest.dir}/TestReportMail.html" match="#TEST_LAB#" replace="${testLabName}" />
+		<replaceregexp file="${testreportoutdest.dir}/TestReportMail.html" match="#RUN_TIME_STAMP#" replace="${mail.time}" />
+		<replaceregexp file="${testreportoutdest.dir}/TestReportMail.html" match="#TEST_LAB_RUN_DIR#" replace="${testLabName.dir}" />
+		<replaceregexp file="${testreportoutdest.dir}/TestReportMail.html" match="#REPORT_OUT_DIR#" replace="${indexoutdest.file}" />
+	</target>
+
+
+	<target name="sendMail" depends="generateMailContent">
+		<loadfile property="html_text" srcFile="${testreportoutdest.dir}/TestReportMail.html" />
+		
+		<mail tolist="${property.mailListTo}" from="Donotreply@standardlife.com" subject="Report for the test cases run at ${mail.time}" mailhost="IMAIL01.internal.standardlife.com">
+			<message mimetype="text/html">
+				${html_text}
+			</message>
+		</mail>
+		
+		<!-- fail the build if the tests failed - but only after we have done everything else -->
+		<!--fail if="test.failed"/ -->
+		
+	</target>
+
+	
+	<target name="openreport" depends="sendMail">
+		<exec executable="${browser}" spawn="yes">
+			<arg line="${indexoutmail.filepath}" />
+		</exec>
+	</target>
+	
+	
+</project>
